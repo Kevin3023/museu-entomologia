@@ -5,23 +5,23 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "aparelho_bucal")
-public class Aparelho_bucal implements Serializable {
+@Table(name = "antenas")
+public class Antenas implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private String nome_antena;
 
-    public Aparelho_bucal(){
+    public Antenas(){
 
     }
 
-    public Aparelho_bucal(Long id, String nome) {
+    public Antenas(Long id, String nome_antena) {
         this.id = id;
-        this.nome = nome;
+        this.nome_antena = nome_antena;
     }
 
     public Long getId() {
@@ -32,12 +32,12 @@ public class Aparelho_bucal implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome_antena() {
+        return nome_antena;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome_antena(String nome_antena) {
+        this.nome_antena = nome_antena;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Aparelho_bucal implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Aparelho_bucal other = (Aparelho_bucal) obj;
+        Antenas other = (Antenas) obj;
         return Objects.equals(id, other.id);
     }
 }
