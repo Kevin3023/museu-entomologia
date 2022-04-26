@@ -12,23 +12,23 @@ public class Asas implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 
 	private String nome_asa;
 
 	public Asas() {
 	}
 
-	public Asas(Integer id, String nome_asa) {
+	public Asas(Long id, String nome_asa) {
 		this.id = id;
 		this.nome_asa = nome_asa;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

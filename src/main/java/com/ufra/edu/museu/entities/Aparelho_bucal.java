@@ -1,28 +1,26 @@
 package com.ufra.edu.museu.entities;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "abdomen")
-public class Abdomen implements Serializable {
+@Table(name = "aparelho_bucal")
+public class Aparelho_bucal implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nome;
 
-    private String nome_abdomen;
-
-    public Abdomen(){
+    public Aparelho_bucal(){
 
     }
 
-    public Abdomen(Long id, String nome_abdomen) {
+    public Aparelho_bucal(Long id, String nome) {
         this.id = id;
-        this.nome_abdomen = nome_abdomen;
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -33,12 +31,12 @@ public class Abdomen implements Serializable {
         this.id = id;
     }
 
-    public String getNome_abdomen() {
-        return nome_abdomen;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNome_abdomen(String nome_abdomen) {
-        this.nome_abdomen = nome_abdomen;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     @Override
@@ -54,7 +52,7 @@ public class Abdomen implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Abdomen other = (Abdomen) obj;
+        Aparelho_bucal other = (Aparelho_bucal) obj;
         return Objects.equals(id, other.id);
     }
 }

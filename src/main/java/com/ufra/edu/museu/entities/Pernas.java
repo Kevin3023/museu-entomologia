@@ -17,23 +17,23 @@ public class Pernas implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 
 	private String nome_perna;
 
 	public Pernas() {
 	}
 
-	public Pernas(Integer id, String nome_perna) {
+	public Pernas(Long id, String nome_perna) {
 		this.id = id;
 		this.nome_perna = nome_perna;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
