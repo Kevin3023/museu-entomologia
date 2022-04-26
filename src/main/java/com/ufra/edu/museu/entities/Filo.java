@@ -1,26 +1,26 @@
 package com.ufra.edu.museu.entities;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
-@Table(name = "habitat")
-public class Habitat implements Serializable {
+public class Filo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String tipo_habitat;
+    private String nome;
 
-    public Habitat(){
+    public Filo(){
 
     }
 
-    public Habitat(Long id, String tipo_habitat) {
+    public Filo(Long id, String nome) {
         this.id = id;
-        this.tipo_habitat = tipo_habitat;
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -31,12 +31,12 @@ public class Habitat implements Serializable {
         this.id = id;
     }
 
-    public String getTipo_habitat() {
-        return tipo_habitat;
+    public String getNome() {
+        return nome;
     }
 
-    public void setTipo_habitat(String tipo_habitat) {
-        this.tipo_habitat = tipo_habitat;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Habitat implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Habitat other = (Habitat) obj;
+        Filo other = (Filo) obj;
         return Objects.equals(id, other.id);
     }
 }
