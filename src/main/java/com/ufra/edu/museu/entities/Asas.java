@@ -1,17 +1,12 @@
 package com.ufra.edu.museu.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 @Entity
-@Table(name = "pernas")
-public class Pernas implements Serializable {
+@Table(name = "asas")
+public class Asas implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,14 +14,14 @@ public class Pernas implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private String nome_perna;
+	private String nome_asa;
 
-	public Pernas() {
+	public Asas() {
 	}
 
-	public Pernas(Integer id, String nome_perna) {
+	public Asas(Integer id, String nome_asa) {
 		this.id = id;
-		this.nome_perna = nome_perna;
+		this.nome_asa = nome_asa;
 	}
 
 	public Integer getId() {
@@ -37,12 +32,12 @@ public class Pernas implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome_perna() {
-		return nome_perna;
+	public String getNome_asa() {
+		return nome_asa;
 	}
 
-	public void setNome_perna(String nome_perna) {
-		this.nome_perna = nome_perna;
+	public void setNome_asa(String nome_asa) {
+		this.nome_asa = nome_asa;
 	}
 
 	@Override
@@ -58,7 +53,7 @@ public class Pernas implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pernas other = (Pernas) obj;
+		Asas other = (Asas) obj;
 		return Objects.equals(id, other.id);
 	}
 }
