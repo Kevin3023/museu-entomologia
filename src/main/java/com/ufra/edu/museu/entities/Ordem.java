@@ -1,11 +1,11 @@
 package com.ufra.edu.museu.entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "ordem")
 public class Ordem implements Serializable {
 
     @Id
@@ -14,7 +14,7 @@ public class Ordem implements Serializable {
 
     private String nome;
 
-    public Ordem(){
+    public Ordem() {
 
     }
 
@@ -55,4 +55,5 @@ public class Ordem implements Serializable {
         Ordem other = (Ordem) obj;
         return Objects.equals(id, other.id);
     }
+
 }
