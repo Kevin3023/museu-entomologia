@@ -1,7 +1,11 @@
 package com.ufra.edu.museu.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +22,10 @@ public class Ordem implements Serializable {
     @ManyToOne
     @JoinColumn(name = "classe_id")
     private Classe classe;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "ordem")
+    private List<Familia> familias = new ArrayList<>();
 
     public Ordem() {
 
@@ -51,6 +59,10 @@ public class Ordem implements Serializable {
 
     public void setClasse(Classe classe) {
         this.classe = classe;
+    }
+
+    public List<Familia> getFamilias() {
+        return familias;
     }
 
     @Override

@@ -14,13 +14,18 @@ public class Familia implements Serializable {
     private Long id;
     private String nome;
 
+    @ManyToOne
+    @JoinColumn(name = "ordem_id")
+    private Ordem ordem;
+
     public  Familia(){
 
     }
 
-    public Familia(Long id, String nome) {
+    public Familia(Long id, String nome, Ordem ordem) {
         this.id = id;
         this.nome = nome;
+        this.ordem = ordem;
     }
 
     public Long getId() {
@@ -37,6 +42,14 @@ public class Familia implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Ordem getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(Ordem ordem) {
+        this.ordem = ordem;
     }
 
     @Override
