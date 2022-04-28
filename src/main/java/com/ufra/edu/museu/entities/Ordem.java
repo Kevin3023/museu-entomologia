@@ -15,13 +15,18 @@ public class Ordem implements Serializable {
 
     private String nome;
 
+    @ManyToOne
+    @JoinColumn(name = "classe_id")
+    private Classe classe;
+
     public Ordem() {
 
     }
 
-    public Ordem(Long id, String nome) {
+    public Ordem(Long id, String nome, Classe classe) {
         this.id = id;
         this.nome = nome;
+        this.classe = classe;
     }
 
     public Long getId() {
@@ -38,6 +43,14 @@ public class Ordem implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Classe getClasse() {
+        return classe;
+    }
+
+    public void setClasse(Classe classe) {
+        this.classe = classe;
     }
 
     @Override

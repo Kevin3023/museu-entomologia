@@ -22,7 +22,7 @@ public class Filo implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "filo")
     private List<Classe> classes = new ArrayList<>();
-    
+
     public Filo(){
 
     }
