@@ -7,7 +7,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "abdomen")
 public class Abdomen implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id

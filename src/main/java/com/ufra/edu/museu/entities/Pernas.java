@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pernas")
 public class Pernas implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id

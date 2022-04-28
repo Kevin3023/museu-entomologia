@@ -1,12 +1,13 @@
 package com.ufra.edu.museu.entities;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "familia")
-public class Familia implements Serializable {
+@Table(name = "genero")
+public class Genero implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -14,11 +15,11 @@ public class Familia implements Serializable {
     private Long id;
     private String nome;
 
-    public  Familia(){
+    public Genero(){
 
     }
 
-    public Familia(Long id, String nome) {
+    public Genero(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -43,8 +44,8 @@ public class Familia implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Familia familia = (Familia) o;
-        return id.equals(familia.id);
+        Genero genero = (Genero) o;
+        return id.equals(genero.id);
     }
 
     @Override

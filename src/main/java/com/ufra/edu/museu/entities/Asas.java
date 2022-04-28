@@ -7,7 +7,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "asas")
 public class Asas implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id

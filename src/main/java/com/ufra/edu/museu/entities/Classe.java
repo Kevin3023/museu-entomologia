@@ -7,6 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "classe")
 public class Classe implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
