@@ -15,13 +15,18 @@ public class Genero implements Serializable {
     private Long id;
     private String nome;
 
+    @ManyToOne
+    @JoinColumn(name = "familia_id")
+    private Familia familia;
+
     public Genero(){
 
     }
 
-    public Genero(Long id, String nome) {
+    public Genero(Long id, String nome, Familia familia) {
         this.id = id;
         this.nome = nome;
+        this.familia = familia;
     }
 
     public Long getId() {
@@ -38,6 +43,14 @@ public class Genero implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Familia getFamilia() {
+        return familia;
+    }
+
+    public void setFamilia(Familia familia) {
+        this.familia = familia;
     }
 
     @Override
