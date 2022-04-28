@@ -1,7 +1,11 @@
 package com.ufra.edu.museu.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +19,10 @@ public class Filo implements Serializable {
 
     private String nome;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "filo")
+    private List<Classe> classes = new ArrayList<>();
+    
     public Filo(){
 
     }
@@ -38,6 +46,10 @@ public class Filo implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Classe> getClasses() {
+        return classes;
     }
 
     @Override
