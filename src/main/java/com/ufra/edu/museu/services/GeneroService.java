@@ -2,6 +2,7 @@ package com.ufra.edu.museu.services;
 
 import com.ufra.edu.museu.entities.Genero;
 import com.ufra.edu.museu.repositories.GeneroRepository;
+import com.ufra.edu.museu.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class GeneroService {
     public Genero findById(Long id){
         Optional<Genero> obj = repository.findById(id);
 
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public Genero insert(Genero obj) {

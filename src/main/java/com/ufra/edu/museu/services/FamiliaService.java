@@ -2,6 +2,7 @@ package com.ufra.edu.museu.services;
 
 import com.ufra.edu.museu.entities.Familia;
 import com.ufra.edu.museu.repositories.FamiliaRepository;
+import com.ufra.edu.museu.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class FamiliaService {
     public Familia findById(Long id){
         Optional<Familia> obj = repository.findById(id);
 
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public Familia insert(Familia obj) {

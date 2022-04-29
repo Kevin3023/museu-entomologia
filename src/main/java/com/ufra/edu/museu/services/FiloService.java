@@ -2,6 +2,7 @@ package com.ufra.edu.museu.services;
 
 import com.ufra.edu.museu.entities.Filo;
 import com.ufra.edu.museu.repositories.FiloRepository;
+import com.ufra.edu.museu.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class FiloService {
     public Filo findById(Long id){
         Optional<Filo> obj = repository.findById(id);
 
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public Filo insert(Filo obj) {

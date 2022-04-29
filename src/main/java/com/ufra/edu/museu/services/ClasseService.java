@@ -2,6 +2,7 @@ package com.ufra.edu.museu.services;
 
 import com.ufra.edu.museu.entities.Classe;
 import com.ufra.edu.museu.repositories.ClasseRepository;
+import com.ufra.edu.museu.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class ClasseService {
     public Classe findById(Long id){
         Optional<Classe> obj = repository.findById(id);
 
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public Classe insert(Classe obj) {
