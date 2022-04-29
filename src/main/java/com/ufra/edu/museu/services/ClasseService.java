@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +30,7 @@ public class ClasseService {
     }
 
     public Classe insert(Classe obj) {
+
         return repository.save(obj);
     }
 
@@ -44,10 +46,15 @@ public class ClasseService {
     }
 
     public Classe update(Long id, Classe obj){
-        Classe entity = repository.getOne(id);
+        try {
+            Classe entity = repository.getOne(id);
 
-        updateData(entity, obj);
-        return repository.save(entity);
+            updateData(entity, obj);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException(id);
+        }
+
     }
 
     private void updateData(Classe entity, Classe obj) {

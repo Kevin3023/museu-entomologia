@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,10 +45,15 @@ public class FiloService {
     }
 
     public Filo update(Long id, Filo obj){
-        Filo entity = repository.getOne(id);
+        try {
+            Filo entity = repository.getOne(id);
 
-        updateData(entity, obj);
-        return repository.save(entity);
+            updateData(entity, obj);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException(id);
+        }
+
     }
 
     private void updateData(Filo entity, Filo obj) {
