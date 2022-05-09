@@ -18,9 +18,14 @@ public class Familia implements Serializable {
     private Long id;
     private String nome;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "familia")
+    private List<Especies> especies = new ArrayList<>();
+
     @ManyToOne
     @JoinColumn(name = "ordem_id")
     private Ordem ordem;
+
 
     @JsonIgnore
     @OneToMany(mappedBy = "familia")
@@ -62,6 +67,10 @@ public class Familia implements Serializable {
 
     public List<Genero> getGeneros() {
         return generos;
+    }
+
+    public List<Especies> getEspecies() {
+        return especies;
     }
 
     @Override
