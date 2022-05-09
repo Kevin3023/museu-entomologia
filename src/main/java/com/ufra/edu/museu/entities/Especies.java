@@ -25,11 +25,15 @@ public class Especies implements Serializable {
     @JoinColumn(name = "metamorfose_id")
     private Metamorfose metamorfose;
 
+    @ManyToOne
+    @JoinColumn(name = "comportamento_id")
+    private Comportamento comportamento;
+
     public Especies(){
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
@@ -37,6 +41,7 @@ public class Especies implements Serializable {
         this.curiosidades = curiosidades;
         this.habitat = habitat;
         this.metamorfose = metamorfose;
+        this.comportamento = comportamento;
     }
 
     public Long getId() {
@@ -93,6 +98,14 @@ public class Especies implements Serializable {
 
     public void setMetamorfose(Metamorfose metamorfose) {
         this.metamorfose = metamorfose;
+    }
+
+    public Comportamento getComportamento() {
+        return comportamento;
+    }
+
+    public void setComportamento(Comportamento comportamento) {
+        this.comportamento = comportamento;
     }
 
     @Override
