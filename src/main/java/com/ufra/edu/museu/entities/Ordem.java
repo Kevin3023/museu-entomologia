@@ -19,6 +19,10 @@ public class Ordem implements Serializable {
 
     private String nome;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "ordem")
+    private List<Especies> especies = new ArrayList<>();
+
     @ManyToOne
     @JoinColumn(name = "classe_id")
     private Classe classe;
@@ -63,6 +67,10 @@ public class Ordem implements Serializable {
 
     public List<Familia> getFamilias() {
         return familias;
+    }
+
+    public List<Especies> getEspecies() {
+        return especies;
     }
 
     @Override
