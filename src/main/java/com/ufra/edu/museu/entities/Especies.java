@@ -1,6 +1,5 @@
 package com.ufra.edu.museu.entities;
 
-import org.springframework.data.mapping.context.PersistentEntities;
 
 import javax.persistence.*;
 import java.io.Serializable;
