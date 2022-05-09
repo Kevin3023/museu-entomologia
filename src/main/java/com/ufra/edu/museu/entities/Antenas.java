@@ -1,7 +1,11 @@
 package com.ufra.edu.museu.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +17,10 @@ public class Antenas implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome_antena;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "antenas")
+    private List<Especies> especies = new ArrayList<>();
 
     public Antenas(){
 
@@ -37,6 +45,10 @@ public class Antenas implements Serializable {
 
     public void setNome_antena(String nome_antena) {
         this.nome_antena = nome_antena;
+    }
+
+    public List<Especies> getEspecies() {
+        return especies;
     }
 
     @Override

@@ -47,11 +47,19 @@ public class Especies implements Serializable {
     @JoinColumn(name = "aparelho_bucal_id")
     private Aparelho_bucal aparelho_bucal;
 
+    @ManyToOne
+    @JoinColumn(name = "antenas_id")
+    private Antenas antenas;
+
+    @ManyToOne
+    @JoinColumn(name = "genero_id")
+    private Genero genero;
+
     public Especies(){
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
@@ -64,6 +72,8 @@ public class Especies implements Serializable {
         this.asas = asas;
         this.abdomen = abdomen;
         this.aparelho_bucal = aparelho_bucal;
+        this.antenas = antenas;
+        this.genero = genero;
     }
 
     public Long getId() {
@@ -160,6 +170,22 @@ public class Especies implements Serializable {
 
     public void setAparelho_bucal(Aparelho_bucal aparelho_bucal) {
         this.aparelho_bucal = aparelho_bucal;
+    }
+
+    public Antenas getAntenas() {
+        return antenas;
+    }
+
+    public void setAntenas(Antenas antenas) {
+        this.antenas = antenas;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
     @Override

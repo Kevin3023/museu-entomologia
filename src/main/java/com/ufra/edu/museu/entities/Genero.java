@@ -1,8 +1,12 @@
 package com.ufra.edu.museu.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +18,10 @@ public class Genero implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "genero")
+    private List<Especies> especies = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "familia_id")
@@ -51,6 +59,10 @@ public class Genero implements Serializable {
 
     public void setFamilia(Familia familia) {
         this.familia = familia;
+    }
+
+    public List<Especies> getEspecies() {
+        return especies;
     }
 
     @Override
