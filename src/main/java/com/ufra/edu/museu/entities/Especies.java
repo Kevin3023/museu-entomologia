@@ -67,11 +67,15 @@ public class Especies implements Serializable {
     @JoinColumn(name = "classe_id")
     private Classe classe;
 
+    @ManyToOne
+    @JoinColumn(name = "filo_id")
+    private Filo filo;
+
     public Especies(){
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero, Familia familia, Ordem ordem, Classe classe) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero, Familia familia, Ordem ordem, Classe classe, Filo filo) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
@@ -89,6 +93,7 @@ public class Especies implements Serializable {
         this.familia = familia;
         this.ordem = ordem;
         this.classe = classe;
+        this.filo = filo;
     }
 
     public Long getId() {
@@ -225,6 +230,14 @@ public class Especies implements Serializable {
 
     public void setClasse(Classe classe) {
         this.classe = classe;
+    }
+
+    public Filo getFilo() {
+        return filo;
+    }
+
+    public void setFilo(Filo filo) {
+        this.filo = filo;
     }
 
     @Override

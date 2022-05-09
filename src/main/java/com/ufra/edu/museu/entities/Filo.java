@@ -21,6 +21,10 @@ public class Filo implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "filo")
+    private List<Especies> especies = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "filo")
     private List<Classe> classes = new ArrayList<>();
 
     public Filo(){
@@ -50,6 +54,10 @@ public class Filo implements Serializable {
 
     public List<Classe> getClasses() {
         return classes;
+    }
+
+    public List<Especies> getEspecies() {
+        return especies;
     }
 
     @Override
