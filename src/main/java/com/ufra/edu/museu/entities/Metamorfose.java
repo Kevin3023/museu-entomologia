@@ -1,6 +1,10 @@
 package com.ufra.edu.museu.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.io.Serializable;
 
@@ -14,6 +18,10 @@ public class Metamorfose implements Serializable {
     private Long id;
     private String tipo_metamorfose;
     private String descricao_meta;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "metamorfose")
+    private List<Especies> especies = new ArrayList<>();
 
     public Metamorfose(){
 
@@ -47,6 +55,10 @@ public class Metamorfose implements Serializable {
 
     public void setDescricao_meta(String descricao_meta) {
         this.descricao_meta = descricao_meta;
+    }
+
+    public List<Especies> getEspecies() {
+        return especies;
     }
 
     @Override
