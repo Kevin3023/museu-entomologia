@@ -1,7 +1,11 @@
 package com.ufra.edu.museu.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +17,10 @@ public class Aparelho_bucal implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "aparelho_bucal")
+    private List<Especies> especies = new ArrayList<>();
 
     public Aparelho_bucal(){
 
@@ -37,6 +45,10 @@ public class Aparelho_bucal implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Especies> getEspecies() {
+        return especies;
     }
 
     @Override

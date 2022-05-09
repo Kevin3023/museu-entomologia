@@ -1,7 +1,11 @@
 package com.ufra.edu.museu.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +18,10 @@ public class Abdomen implements Serializable {
     private Long id;
 
     private String nome_abdomen;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "abdomen")
+    private List<Especies> especies = new ArrayList<>();
 
     public Abdomen(){
 
@@ -38,6 +46,10 @@ public class Abdomen implements Serializable {
 
     public void setNome_abdomen(String nome_abdomen) {
         this.nome_abdomen = nome_abdomen;
+    }
+
+    public List<Especies> getEspecies() {
+        return especies;
     }
 
     @Override

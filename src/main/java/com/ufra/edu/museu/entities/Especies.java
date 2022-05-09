@@ -39,11 +39,19 @@ public class Especies implements Serializable {
     @JoinColumn(name = "asas_id")
     private Asas asas;
 
+    @ManyToOne
+    @JoinColumn(name = "abdomen_id")
+    private Abdomen abdomen;
+
+    @ManyToOne
+    @JoinColumn(name = "aparelho_bucal_id")
+    private Aparelho_bucal aparelho_bucal;
+
     public Especies(){
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
@@ -54,6 +62,8 @@ public class Especies implements Serializable {
         this.comportamento = comportamento;
         this.pernas = pernas;
         this.asas = asas;
+        this.abdomen = abdomen;
+        this.aparelho_bucal = aparelho_bucal;
     }
 
     public Long getId() {
@@ -134,6 +144,22 @@ public class Especies implements Serializable {
 
     public void setAsas(Asas asas) {
         this.asas = asas;
+    }
+
+    public Abdomen getAbdomen() {
+        return abdomen;
+    }
+
+    public void setAbdomen(Abdomen abdomen) {
+        this.abdomen = abdomen;
+    }
+
+    public Aparelho_bucal getAparelho_bucal() {
+        return aparelho_bucal;
+    }
+
+    public void setAparelho_bucal(Aparelho_bucal aparelho_bucal) {
+        this.aparelho_bucal = aparelho_bucal;
     }
 
     @Override
