@@ -17,16 +17,21 @@ public class Especies implements Serializable {
     private String descricao;
     private String curiosidades;
 
+    @ManyToOne
+    @JoinColumn(name = "habitat_id")
+    private Habitat habitat;
+
     public Especies(){
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
         this.descricao = descricao;
         this.curiosidades = curiosidades;
+        this.habitat = habitat;
     }
 
     public Long getId() {
@@ -67,6 +72,14 @@ public class Especies implements Serializable {
 
     public void setCuriosidades(String curiosidades) {
         this.curiosidades = curiosidades;
+    }
+
+    public Habitat getHabitat() {
+        return habitat;
+    }
+
+    public void setHabitat(Habitat habitat) {
+        this.habitat = habitat;
     }
 
     @Override
