@@ -1,13 +1,13 @@
 package com.ufra.edu.museu.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "pernas")
@@ -19,6 +19,10 @@ public class Pernas implements Serializable {
 	private Long id;
 
 	private String nome_perna;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "pernas")
+	private List<Especies> especies = new ArrayList<>();
 
 	public Pernas() {
 	}
@@ -42,6 +46,10 @@ public class Pernas implements Serializable {
 
 	public void setNome_perna(String nome_perna) {
 		this.nome_perna = nome_perna;
+	}
+
+	public List<Especies> getEspecies() {
+		return especies;
 	}
 
 	@Override

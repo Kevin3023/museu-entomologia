@@ -1,5 +1,7 @@
 package com.ufra.edu.museu.entities;
 
+import org.springframework.data.mapping.context.PersistentEntities;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -29,11 +31,15 @@ public class Especies implements Serializable {
     @JoinColumn(name = "comportamento_id")
     private Comportamento comportamento;
 
+    @ManyToOne
+    @JoinColumn(name = "pernas_id")
+    private Pernas pernas;
+
     public Especies(){
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
@@ -42,6 +48,7 @@ public class Especies implements Serializable {
         this.habitat = habitat;
         this.metamorfose = metamorfose;
         this.comportamento = comportamento;
+        this.pernas = pernas;
     }
 
     public Long getId() {
@@ -106,6 +113,14 @@ public class Especies implements Serializable {
 
     public void setComportamento(Comportamento comportamento) {
         this.comportamento = comportamento;
+    }
+
+    public Pernas getPernas() {
+        return pernas;
+    }
+
+    public void setPernas(Pernas pernas) {
+        this.pernas = pernas;
     }
 
     @Override
