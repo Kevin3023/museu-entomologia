@@ -2,6 +2,7 @@ package com.ufra.edu.museu.resources;
 
 import com.ufra.edu.museu.entities.Pernas;
 import com.ufra.edu.museu.services.PernasService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping(value = "/pernas")
 public class PernasResource {
 
+    @Autowired
     private PernasService service;
 
     @GetMapping

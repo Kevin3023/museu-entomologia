@@ -2,6 +2,7 @@ package com.ufra.edu.museu.resources;
 
 import com.ufra.edu.museu.entities.Antenas;
 import com.ufra.edu.museu.services.AntenasService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping(value = "/antenas")
 public class AntenasResource {
 
+    @Autowired
     private AntenasService service;
 
     @GetMapping

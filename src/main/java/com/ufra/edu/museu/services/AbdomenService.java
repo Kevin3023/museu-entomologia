@@ -20,6 +20,7 @@ public class AbdomenService {
     private AbdomenRepository repository;
 
     public List<Abdomen> findAll(){
+
         return repository.findAll();
     }
 
