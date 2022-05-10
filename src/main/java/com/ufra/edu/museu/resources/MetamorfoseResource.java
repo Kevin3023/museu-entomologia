@@ -2,6 +2,7 @@ package com.ufra.edu.museu.resources;
 
 import com.ufra.edu.museu.entities.Metamorfose;
 import com.ufra.edu.museu.services.MetamorfoseService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ public class MetamorfoseResource {
     @Autowired
     private MetamorfoseService service;
 
+    @ApiOperation(value = "Recupera todos os registros de metamorfoses")
     @GetMapping
     public ResponseEntity<List<Metamorfose>> findAll(){
 
@@ -26,6 +28,7 @@ public class MetamorfoseResource {
         return ResponseEntity.ok().body(list);
     }
 
+    @ApiOperation(value = "Recupera um registro de uma metamorfose por id")
     @GetMapping(value = "/{id}")
     public ResponseEntity<Metamorfose> findById(@PathVariable Long id){
         Metamorfose obj = service.findById(id);
@@ -33,6 +36,7 @@ public class MetamorfoseResource {
         return ResponseEntity.ok().body(obj);
     }
 
+    @ApiOperation(value = "Cria uma nova metamrfose e cadastra ela no banco de dados")
     @PostMapping
     public ResponseEntity<Metamorfose> insert(@RequestBody Metamorfose obj){
         obj = service.insert(obj);
@@ -41,6 +45,7 @@ public class MetamorfoseResource {
         return ResponseEntity.created(uri).body(obj);
     }
 
+    @ApiOperation(value = "Deleta uma metamorfose através do id dela")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete (@PathVariable Long id){
         service.delete(id);
@@ -48,6 +53,7 @@ public class MetamorfoseResource {
         return ResponseEntity.noContent().build();
     }
 
+    @ApiOperation(value = "Atualiza um registro no banco de dados através do id dele")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Metamorfose> update(@PathVariable Long id, @RequestBody Metamorfose obj){
         obj = service.update(id, obj);
