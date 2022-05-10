@@ -1,10 +1,13 @@
 package com.ufra.edu.museu.entities;
 
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@CrossOrigin
 @Entity
 @Table(name = "especies")
 public class Especies implements Serializable {
