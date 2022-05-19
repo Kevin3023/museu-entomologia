@@ -18,7 +18,6 @@ public class Especies implements Serializable {
     private Long id;
     private String nome_cientifico;
     private String nome_comum;
-    private String descricao;
     private String curiosidades;
 
     @ManyToOne
@@ -77,11 +76,10 @@ public class Especies implements Serializable {
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String descricao, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero, Familia familia, Ordem ordem, Classe classe, Filo filo) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero, Familia familia, Ordem ordem, Classe classe, Filo filo) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
-        this.descricao = descricao;
         this.curiosidades = curiosidades;
         this.habitat = habitat;
         this.metamorfose = metamorfose;
@@ -120,14 +118,6 @@ public class Especies implements Serializable {
 
     public void setNome_comum(String nome_comum) {
         this.nome_comum = nome_comum;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public String getCuriosidades() {

@@ -67,7 +67,6 @@ public class EspeciesService {
         entity.setClasse(obj.getClasse());
         entity.setComportamento(obj.getComportamento());
         entity.setCuriosidades(obj.getCuriosidades());
-        entity.setDescricao(obj.getDescricao());
         entity.setFamilia(obj.getFamilia());
         entity.setFilo(obj.getFilo());
         entity.setGenero(obj.getGenero());

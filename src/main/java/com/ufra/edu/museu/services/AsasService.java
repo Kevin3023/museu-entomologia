@@ -4,6 +4,7 @@ import com.ufra.edu.museu.entities.Asas;
 import com.ufra.edu.museu.repositories.AsasRepository;
 import com.ufra.edu.museu.services.exceptions.DatabaseException;
 import com.ufra.edu.museu.services.exceptions.ResourceNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.Optional;
 @Service
 public class AsasService {
 
+    @Autowired
     private AsasRepository repository;
 
     public List<Asas> findAll(){
