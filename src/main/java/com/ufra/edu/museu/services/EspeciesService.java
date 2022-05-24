@@ -30,6 +30,11 @@ public class EspeciesService {
         return repository.findAll(pageable);
     }
 
+    public List<Especies> findByName(String name) {
+
+        return repository.findByName(name.toLowerCase());
+    }
+
     public Especies findById(Long id){
         Optional<Especies> obj = repository.findById(id);
 
@@ -82,4 +87,5 @@ public class EspeciesService {
         entity.setOrdem(obj.getOrdem());
         entity.setPernas(obj.getPernas());
     }
+
 }

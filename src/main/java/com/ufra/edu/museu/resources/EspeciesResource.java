@@ -36,6 +36,12 @@ public class EspeciesResource {
         return ResponseEntity.ok(service.listaPaginada(pageable));
     }
 
+    @ApiOperation(value = "pesquisa espécies por nome científico ou comum")
+    @GetMapping(path = "/search/{name}")
+    public ResponseEntity<List<Especies>> searchByName(@PathVariable String name) {
+        return ResponseEntity.ok(service.findByName(name));
+    }
+
     @ApiOperation(value = "Recupera uma espécie por id")
     @GetMapping(value = "/{id}")
     public ResponseEntity<Especies> findById(@PathVariable Long id){
