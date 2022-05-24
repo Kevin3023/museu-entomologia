@@ -4,6 +4,8 @@ import com.ufra.edu.museu.entities.Especies;
 import com.ufra.edu.museu.services.EspeciesService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -26,6 +28,12 @@ public class EspeciesResource {
         List<Especies> list = service.findAll();
 
         return ResponseEntity.ok().body(list);
+    }
+
+    @ApiOperation(value = "Recupera todos as espécies com paginação")
+    @GetMapping(path = "/page")
+    public ResponseEntity<Page<Especies>> finAllWithPagination(Pageable pageable) {
+        return ResponseEntity.ok(service.listaPaginada(pageable));
     }
 
     @ApiOperation(value = "Recupera uma espécie por id")

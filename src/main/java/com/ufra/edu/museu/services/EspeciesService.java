@@ -7,6 +7,8 @@ import com.ufra.edu.museu.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -21,6 +23,11 @@ public class EspeciesService {
 
     public List<Especies> findAll(){
         return repository.findAll();
+    }
+
+    public Page<Especies> listaPaginada(Pageable pageable) {
+
+        return repository.findAll(pageable);
     }
 
     public Especies findById(Long id){
