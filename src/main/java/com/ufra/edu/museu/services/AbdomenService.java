@@ -59,6 +59,6 @@ public class AbdomenService {
     }
 
     private void updateData(Abdomen entity, Abdomen obj) {
-        entity.setNome_abdomen(obj.getNome_abdomen());
+        entity.setNome(obj.getNome());
     }
 }

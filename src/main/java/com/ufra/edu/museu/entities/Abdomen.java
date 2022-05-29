@@ -17,7 +17,7 @@ public class Abdomen implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome_abdomen;
+    private String nome;
 
     @JsonIgnore
     @OneToMany(mappedBy = "abdomen")
@@ -27,9 +27,9 @@ public class Abdomen implements Serializable {
 
     }
 
-    public Abdomen(Long id, String nome_abdomen) {
+    public Abdomen(Long id, String nome) {
         this.id = id;
-        this.nome_abdomen = nome_abdomen;
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -40,12 +40,12 @@ public class Abdomen implements Serializable {
         this.id = id;
     }
 
-    public String getNome_abdomen() {
-        return nome_abdomen;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNome_abdomen(String nome_abdomen) {
-        this.nome_abdomen = nome_abdomen;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public List<Especies> getEspecies() {

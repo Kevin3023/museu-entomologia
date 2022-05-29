@@ -58,6 +58,6 @@ public class AsasService {
     }
 
     private void updateData(Asas entity, Asas obj) {
-        entity.setNome_asa(obj.getNome_asa());
+        entity.setNome(obj.getNome());
     }
 }

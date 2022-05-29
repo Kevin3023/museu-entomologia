@@ -59,6 +59,6 @@ public class AntenasService {
     }
 
     private void updateData(Antenas entity, Antenas obj) {
-        entity.setNome_antena(obj.getNome_antena());
+        entity.setNome(obj.getNome());
     }
 }

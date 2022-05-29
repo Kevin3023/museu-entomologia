@@ -16,7 +16,7 @@ public class Antenas implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome_antena;
+    private String nome;
 
     @JsonIgnore
     @OneToMany(mappedBy = "antenas")
@@ -26,9 +26,9 @@ public class Antenas implements Serializable {
 
     }
 
-    public Antenas(Long id, String nome_antena) {
+    public Antenas(Long id, String nome) {
         this.id = id;
-        this.nome_antena = nome_antena;
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -39,12 +39,12 @@ public class Antenas implements Serializable {
         this.id = id;
     }
 
-    public String getNome_antena() {
-        return nome_antena;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNome_antena(String nome_antena) {
-        this.nome_antena = nome_antena;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public List<Especies> getEspecies() {

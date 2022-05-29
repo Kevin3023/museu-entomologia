@@ -18,7 +18,7 @@ public class Pernas implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String nome_perna;
+	private String nome;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "pernas")
@@ -27,9 +27,9 @@ public class Pernas implements Serializable {
 	public Pernas() {
 	}
 
-	public Pernas(Long id, String nome_perna) {
+	public Pernas(Long id, String nome) {
 		this.id = id;
-		this.nome_perna = nome_perna;
+		this.nome = nome;
 	}
 
 	public Long getId() {
@@ -40,12 +40,12 @@ public class Pernas implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome_perna() {
-		return nome_perna;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_perna(String nome_perna) {
-		this.nome_perna = nome_perna;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public List<Especies> getEspecies() {

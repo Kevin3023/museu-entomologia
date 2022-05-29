@@ -58,6 +58,6 @@ public class HabitatService {
     }
 
     private void updateData(Habitat entity, Habitat obj) {
-        entity.setTipo_habitat(obj.getTipo_habitat());
+        entity.setNome(obj.getNome());
     }
 }

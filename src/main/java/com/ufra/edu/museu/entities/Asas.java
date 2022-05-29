@@ -17,7 +17,7 @@ public class Asas implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String nome_asa;
+	private String nome;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "asas")
@@ -26,9 +26,9 @@ public class Asas implements Serializable {
 	public Asas() {
 	}
 
-	public Asas(Long id, String nome_asa) {
+	public Asas(Long id, String nome) {
 		this.id = id;
-		this.nome_asa = nome_asa;
+		this.nome = nome;
 	}
 
 	public Long getId() {
@@ -39,12 +39,12 @@ public class Asas implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome_asa() {
-		return nome_asa;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_asa(String nome_asa) {
-		this.nome_asa = nome_asa;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public List<Especies> getEspecies() {

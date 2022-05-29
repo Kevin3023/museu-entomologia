@@ -16,8 +16,8 @@ public class Metamorfose implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String tipo_metamorfose;
-    private String descricao_meta;
+    private String nome;
+    private String descricao;
 
     @JsonIgnore
     @OneToMany(mappedBy = "metamorfose")
@@ -27,10 +27,10 @@ public class Metamorfose implements Serializable {
 
     }
 
-    public Metamorfose(Long id, String tipo_metamorfose, String descricao_meta) {
+    public Metamorfose(Long id, String nome, String descricao) {
         this.id = id;
-        this.tipo_metamorfose = tipo_metamorfose;
-        this.descricao_meta = descricao_meta;
+        this.nome = nome;
+        this.descricao = descricao;
     }
 
     public Long getId() {
@@ -41,20 +41,20 @@ public class Metamorfose implements Serializable {
         this.id = id;
     }
 
-    public String getTipo_metamorfose() {
-        return tipo_metamorfose;
+    public String getNome() {
+        return nome;
     }
 
-    public void setTipo_metamorfose(String tipo_metamorfose) {
-        this.tipo_metamorfose = tipo_metamorfose;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getDescricao_meta() {
-        return descricao_meta;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescricao_meta(String descricao_meta) {
-        this.descricao_meta = descricao_meta;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public List<Especies> getEspecies() {

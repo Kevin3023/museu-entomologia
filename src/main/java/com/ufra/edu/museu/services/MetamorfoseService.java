@@ -58,7 +58,7 @@ public class MetamorfoseService {
     }
 
     private void updateData(Metamorfose entity, Metamorfose obj) {
-        entity.setTipo_metamorfose(obj.getTipo_metamorfose());
-        entity.setDescricao_meta(obj.getDescricao_meta());
+        entity.setNome(obj.getNome());
+        entity.setDescricao(obj.getDescricao());
     }
 }

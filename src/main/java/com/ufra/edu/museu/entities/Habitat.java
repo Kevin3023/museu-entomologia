@@ -17,7 +17,7 @@ public class Habitat implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String tipo_habitat;
+    private String nome;
 
     @JsonIgnore
     @OneToMany(mappedBy = "habitat")
@@ -27,9 +27,9 @@ public class Habitat implements Serializable {
 
     }
 
-    public Habitat(Long id, String tipo_habitat) {
+    public Habitat(Long id, String nome) {
         this.id = id;
-        this.tipo_habitat = tipo_habitat;
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -40,12 +40,12 @@ public class Habitat implements Serializable {
         this.id = id;
     }
 
-    public String getTipo_habitat() {
-        return tipo_habitat;
+    public String getNome() {
+        return nome;
     }
 
-    public void setTipo_habitat(String tipo_habitat) {
-        this.tipo_habitat = tipo_habitat;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public List<Especies> getEspecies() {

@@ -58,6 +58,6 @@ public class PernasService {
     }
 
     private void updateData(Pernas entity, Pernas obj) {
-        entity.setNome_perna(obj.getNome_perna());
+        entity.setNome(obj.getNome());
     }
 }
