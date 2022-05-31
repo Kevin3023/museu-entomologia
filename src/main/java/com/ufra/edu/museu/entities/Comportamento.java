@@ -16,7 +16,7 @@ public class Comportamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String tipo_comportamento;
+    private String nome;
 
     @JsonIgnore
     @OneToMany(mappedBy = "comportamento")
@@ -26,9 +26,9 @@ public class Comportamento implements Serializable {
 
     }
 
-    public Comportamento(Long id, String tipo_comportamento) {
+    public Comportamento(Long id, String nome) {
         this.id = id;
-        this.tipo_comportamento = tipo_comportamento;
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -39,12 +39,12 @@ public class Comportamento implements Serializable {
         this.id = id;
     }
 
-    public String getTipo_comportamento() {
-        return tipo_comportamento;
+    public String getNome() {
+        return nome;
     }
 
-    public void setTipo_comportamento(String tipo_comportamento) {
-        this.tipo_comportamento = tipo_comportamento;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public List<Especies> getEspecies() {

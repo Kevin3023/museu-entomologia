@@ -58,6 +58,6 @@ public class ComportamentoService {
     }
 
     private void updateData(Comportamento entity, Comportamento obj) {
-        entity.setTipo_comportamento(obj.getTipo_comportamento());
+        entity.setNome(obj.getNome());
     }
 }
