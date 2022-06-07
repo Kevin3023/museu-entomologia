@@ -72,7 +72,7 @@ public class EspeciesService {
     private void updateData(Especies entity, Especies obj) {
         entity.setNome_comum(obj.getNome_comum());
         entity.setNome_cientifico(obj.getNome_cientifico());
-        entity.setImageUrl(obj.getImageUrl());
+        entity.setImage_url(obj.getImage_url());
         entity.setAbdomen(obj.getAbdomen());
         entity.setAntenas(obj.getAntenas());
         entity.setAsas(obj.getAsas());
