@@ -19,6 +19,7 @@ public class Especies implements Serializable {
     private String nome_cientifico;
     private String nome_comum;
     private String curiosidades;
+    private String imageUrl;
 
     @ManyToOne
     @JoinColumn(name = "habitat_id")
@@ -76,11 +77,12 @@ public class Especies implements Serializable {
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String curiosidades, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero, Familia familia, Ordem ordem, Classe classe, Filo filo) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String curiosidades, String imageUrl, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero, Familia familia, Ordem ordem, Classe classe, Filo filo) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
         this.curiosidades = curiosidades;
+        this.imageUrl = imageUrl;
         this.habitat = habitat;
         this.metamorfose = metamorfose;
         this.comportamento = comportamento;
@@ -126,6 +128,14 @@ public class Especies implements Serializable {
 
     public void setCuriosidades(String curiosidades) {
         this.curiosidades = curiosidades;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Habitat getHabitat() {
