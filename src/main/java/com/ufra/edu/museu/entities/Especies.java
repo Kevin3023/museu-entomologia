@@ -19,7 +19,7 @@ public class Especies implements Serializable {
     private String nome_cientifico;
     private String nome_comum;
     private String curiosidades;
-    private Integer image_id;
+    private String image_id;
     private String image_url;
 
     @ManyToOne
@@ -78,7 +78,7 @@ public class Especies implements Serializable {
 
     }
 
-    public Especies(Long id, String nome_cientifico, String nome_comum, String curiosidades, Integer image_id, String image_url, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero, Familia familia, Ordem ordem, Classe classe, Filo filo) {
+    public Especies(Long id, String nome_cientifico, String nome_comum, String curiosidades, String image_id, String image_url, Habitat habitat, Metamorfose metamorfose, Comportamento comportamento, Pernas pernas, Asas asas, Abdomen abdomen, Aparelho_bucal aparelho_bucal, Antenas antenas, Genero genero, Familia familia, Ordem ordem, Classe classe, Filo filo) {
         this.id = id;
         this.nome_cientifico = nome_cientifico;
         this.nome_comum = nome_comum;
@@ -132,14 +132,14 @@ public class Especies implements Serializable {
         this.curiosidades = curiosidades;
     }
 
-    public Integer getImage_id() {
+    public String getImage_id() {
         return image_id;
     }
 
-    public void setImage_id(Integer image_id) {
+    public void setImage_id(String image_id) {
         this.image_id = image_id;
     }
-
+    
     public String getImage_url() {
         return image_url;
     }
